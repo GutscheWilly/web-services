@@ -12,7 +12,7 @@ import java.util.Objects;
 @Table(name = "table_order")
 public class Order implements Serializable {
 
-    private final Long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

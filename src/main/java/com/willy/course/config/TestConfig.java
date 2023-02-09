@@ -1,8 +1,10 @@
 package com.willy.course.config;
 
+import com.willy.course.entities.Category;
 import com.willy.course.entities.Order;
 import com.willy.course.entities.User;
 import com.willy.course.entities.enums.OrderStatus;
+import com.willy.course.repositories.CategoryRepository;
 import com.willy.course.repositories.OrderRepository;
 import com.willy.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public void run(String... args) throws Exception {
         User user1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
@@ -34,5 +39,11 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(user1, user2));
         orderRepository.saveAll(Arrays.asList(order1, order2, order3));
+
+        Category category1 = new Category(null, "Electronics");
+        Category category2 = new Category(null, "Books");
+        Category category3 = new Category(null, "Computers");
+
+        categoryRepository.saveAll(Arrays.asList(category1, category2, category3));
     }
 }

@@ -1,12 +1,11 @@
 package com.willy.course.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Category implements Serializable {
@@ -18,12 +17,16 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
+    @Transient
+    private Set<Product> products;
+
     public Category() {
     }
 
     public Category(Long id, String name) {
         this.id = id;
         this.name = name;
+        products = new HashSet<>();
     }
 
     public Long getId() {
@@ -40,6 +43,10 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
     }
 
     @Override

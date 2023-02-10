@@ -20,8 +20,9 @@ public class Product implements Serializable {
     private Double price;
     private String imageUrl;
 
-    @Transient
-    private Set<Category> categories;
+    @ManyToMany
+    @JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories = new HashSet<>();
 
     public Product() {
     }
@@ -32,7 +33,6 @@ public class Product implements Serializable {
         this.description = description;
         this.price = price;
         this.imageUrl = imageUrl;
-        categories = new HashSet<>();
     }
 
     public Long getId() {
@@ -77,6 +77,14 @@ public class Product implements Serializable {
 
     public Set<Category> getCategories() {
         return categories;
+    }
+
+    public void addCategory(Category category) {
+        categories.add(category);
+    }
+
+    public void removeCategory(Category category) {
+        categories.remove(category);
     }
 
     @Override

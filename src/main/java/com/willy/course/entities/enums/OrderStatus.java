@@ -1,7 +1,5 @@
 package com.willy.course.entities.enums;
 
-import java.util.Arrays;
-
 public enum OrderStatus {
 
     WAITING_PAYMENT(1),

@@ -19,7 +19,11 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        Optional<User> optimal = userRepository.findById(id);
-        return optimal.get();
+        Optional<User> optional = userRepository.findById(id);
+        return optional.get();
+    }
+
+    public User insert(User user) {
+        return userRepository.save(user);
     }
 }

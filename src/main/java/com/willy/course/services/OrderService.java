@@ -19,7 +19,7 @@ public class OrderService {
     }
 
     public Order findById(Long id) {
-        Optional<Order> optimal = orderRepository.findById(id);
-        return optimal.get();
+        Optional<Order> optional = orderRepository.findById(id);
+        return optional.get();
     }
 }

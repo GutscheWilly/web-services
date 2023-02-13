@@ -2,6 +2,7 @@ package com.willy.course.services;
 
 import com.willy.course.entities.Category;
 import com.willy.course.repositories.CategoryRepository;
+import com.willy.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,6 @@ public class CategoryService {
 
     public Category findById(Long id) {
         Optional<Category> optional = categoryRepository.findById(id);
-        return optional.get();
+        return optional.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }

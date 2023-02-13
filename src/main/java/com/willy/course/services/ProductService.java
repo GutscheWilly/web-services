@@ -2,6 +2,7 @@ package com.willy.course.services;
 
 import com.willy.course.entities.Product;
 import com.willy.course.repositories.ProductRepository;
+import com.willy.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,6 @@ public class ProductService {
 
     public Product findById(Long id) {
         Optional<Product> optional = productRepository.findById(id);
-        return optional.get();
+        return optional.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 }

@@ -2,6 +2,7 @@ package com.willy.course.services;
 
 import com.willy.course.entities.User;
 import com.willy.course.repositories.UserRepository;
+import com.willy.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class UserService {
 
     public User findById(Long id) {
         Optional<User> optional = userRepository.findById(id);
-        return optional.get();
+        return optional.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User user) {

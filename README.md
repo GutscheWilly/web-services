@@ -1,7 +1,11 @@
 # Sobre o projeto
-O projeto é uma aplicação web focado na construção de uma arquitetura back end que é responsável por gerenciar os componentes de pedidos nas compras do cliente
+O projeto é uma aplicação web focada na construção de uma arquitetura back-end que é responsável por gerenciar os componentes dos pedidos de um cliente no processo de compra de produtos
+
 # Entidades do projeto
-![image](https://user-images.githubusercontent.com/108245169/218842431-c6df8625-9894-47f2-bfe4-6d28f72a41ac.png)
+<p>
+  <img src="https://user-images.githubusercontent.com/108245169/219289355-ef45b596-16b1-4ac9-b167-32b53f094e47.png" img>
+</p>
+
 # Tecnologias utilizadas
 * Java
 * Spring Boot
@@ -9,18 +13,22 @@ O projeto é uma aplicação web focado na construção de uma arquitetura back 
 * Maven
 * H2 Database
 * Postman
+
 # Arquitetura
 Há três principais camadas de arquitetura:
 * Resources
 * Services
 * Repositories
+
 # Executar o projeto
 Pré-requisitos:
 * Java 17
 * Postman
 ```bash
+// Clonar repositório
 git clone https://github.com/GutscheWilly/web-services-spring-boot.git
 
+// Executar a aplicação
 ./mvnw spring-boot:run
 ```
 # Usando o Postman
